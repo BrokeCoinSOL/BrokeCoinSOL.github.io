@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="$BROKE — Broke today. Still buying memes tomorrow.">
+
+  <title>$BROKE — Stay Broke</title>
+
+  <style>
+    :root {
+      --bg: #070707;
+      --card: #101010;
+      --card2: #151515;
+      --text: #f5f5f5;
+      --muted: #929292;
+      --green: #d8ff3e;
+      --border: #252525;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% -10%, #242b0b 0%, #070707 38%),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: #bdbdbd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 14px 21px;
+
+      border-radius: 12px;
+      border: 1px solid var(--border);
+
+      font-weight: 800;
+      font-size: 14px;
+
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #080808;
+      border-color: var(--green);
+    }
+
+    .btn-secondary {
+      background: #111;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 690px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      align-items: center;
+      gap: 60px;
+
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-block;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #141a07;
+      border: 1px solid #3a4510;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 22px 0;
+
+      font-size: clamp(70px, 10vw, 130px);
+
+      line-height: 0.82;
+
+      letter-spacing: -8px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero-text {
+      max-width: 560px;
+
+      color: #c0c0c0;
+
+      font-size: 19px;
+
+      line-height: 1.65;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    /* TIGER */
+
+    .tiger-card {
+      height: 440px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(circle at center, #272d0e 0%, #111 45%, #0b0b0b 100%);
+    }
+
+    .tiger {
+      font-size: 190px;
+
+      filter: drop-shadow(0 25px 35px #000);
+
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(-2deg);
+      }
+    }
+
+    .watermark {
+      position: absolute;
+
+      right: 25px;
+      bottom: 15px;
+
+      font-size: 65px;
+
+      font-weight: 900;
+
+      color: rgba(255,255,255,0.025);
+
+      letter-spacing: -5px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 90px 0;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 40px;
+
+      margin-bottom: 15px;
+
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      color: var(--muted);
+
+      max-width: 600px;
+
+      margin-bottom: 35px;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      padding: 27px;
+
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+
+      border-color: #3c3c3c;
+    }
+
+    .card-icon {
+      font-size: 28px;
+
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+
+      font-size: 19px;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      line-height: 1.65;
+    }
+
+    /* MANIFESTO */
+
+    .manifesto {
+      font-size: clamp(35px, 6vw, 70px);
+
+      font-weight: 900;
+
+      line-height: 1.05;
+
+      letter-spacing: -3px;
+
+      max-width: 950px;
+    }
+
+    .manifesto span {
+      color: var(--green);
+    }
+
+    /* TOKEN */
+
+    .token-box {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 30px;
+    }
+
+    .token-name {
+      font-size: 40px;
+
+      font-weight: 900;
+
+      margin: 12px 0;
+    }
+
+    .token-info {
+      color: var(--muted);
+
+      margin-bottom: 22px;
+    }
+
+    .contract {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 13px;
+
+      background: #090909;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+    }
+
+    .contract-address {
+      flex: 1;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+      color: #ddd;
+
+      font-family: monospace;
+
+      font-size: 13px;
+    }
+
+    .copy-btn {
+      border: none;
+
+      background: var(--green);
+
+      color: #080808;
+
+      padding: 9px 13px;
+
+      border-radius: 8px;
+
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color: #666;
+
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding: 60px 0;
+      }
+
+      .tiger-card {
+        height: 330px;
+      }
+
+      .tiger {
+        font-size: 145px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -5px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+      <a href="#" class="logo">
+        <span>$</span>BROKE
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#token">Token</a>
+      </div>
+
+      <!-- CHANGE X LINK -->
+      <a
+        href="https://x.com/YOUR_X_USERNAME"
+        target="_blank"
+        class="btn btn-secondary">
+        𝕏 Follow
+      </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <main>
+
+      <section class="hero" style="border-top: none;">
+
+        <div>
+
+          <div class="badge">
+            THE BROKE MOVEMENT
+          </div>
+
+          <h1>
+            STAY<br>
+            <span>BROKE.</span>
+          </h1>
+
+          <p class="hero-text">
+            Broke today. Still buying memes tomorrow.
+            $BROKE is a community-driven meme coin for
+            everyone who has ever made a questionable
+            financial decision.
+          </p>
+
+          <div class="buttons">
+
+            <!-- CHANGE PUMP.FUN LINK -->
+            <a
+              href="https://pump.fun/"
+              target="_blank"
+              class="btn btn-primary">
+              Buy $BROKE ↗
+            </a>
+
+            <!-- CHANGE X LINK -->
+            <a
+              href="https://x.com/YOUR_X_USERNAME"
+              target="_blank"
+              class="btn btn-secondary">
+              Follow on 𝕏
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- TEMPORARY TIGER -->
+        <!-- You can replace the emoji with your generated tiger image -->
+
+        <div class="tiger-card">
+
+          <div class="tiger">
+            🐯
+          </div>
+
+          <div class="watermark">
+            BROKE
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ABOUT -->
+
+      <section id="about">
+
+        <h2 class="section-title">
+          WHY $BROKE?
+        </h2>
+
+        <p class="section-description">
+          No complicated story. No fake corporate roadmap.
+          Just a meme, a tiger and a community that understands.
+        </p>
+
+
+        <div class="cards">
+
+          <div class="card">
+
+            <div class="card-icon">
+              🐯
+            </div>
+
+            <h3>
+              The Tiger
+            </h3>
+
+            <p>
+              Empty wallet. Full confidence.
+              Questionable decisions.
+              The official mascot of the broke generation.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              🫡
+            </div>
+
+            <h3>
+              The Community
+            </h3>
+
+            <p>
+              Memes, chaos and people who know
+              exactly what it feels like to check
+              their wallet after buying another meme.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              🧠
+            </div>
+
+            <h3>
+              No Fake Promises
+            </h3>
+
+            <p>
+              No guaranteed returns.
+              No fake partnerships.
+              Just a meme coin and a community
+              having fun.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- MANIFESTO -->
+
+      <section id="manifesto">
+
+        <div class="badge">
+          THE MANIFESTO
+        </div>
+
+        <p class="manifesto" style="margin-top:25px;">
+
+          Rent is due.<br>
+
+          Bills are due.<br>
+
+          Your portfolio is red.<br>
+
+          <span>
+            But the memes are green.
+          </span>
+
+        </p>
+
+      </section>
+
+
+      <!-- TOKEN -->
+
+      <section id="token">
+
+        <div class="token-box">
+
+          <div class="badge">
+            TOKEN
+          </div>
+
+          <div class="token-name">
+            $BROKE
+          </div>
+
+          <p class="token-info">
+            Solana meme coin.
+            Replace the placeholder below with
+            your real contract address after launch.
+          </p>
+
+
+          <div class="contract">
+
+            <!-- CHANGE THIS TO YOUR REAL CONTRACT -->
+            <div
+              class="contract-address"
+              id="contract">
+              YOUR_CONTRACT_ADDRESS
+            </div>
+
+            <button
+              class="copy-btn"
+              onclick="copyContract()">
+              COPY
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <div>
+        © 2026 $BROKE. Stay broke.
+      </div>
+
+      <div>
+        Memecoin entertainment — not financial advice.
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    function copyContract() {
+
+      const contract =
+        document.getElementById("contract").innerText;
+
+      navigator.clipboard.writeText(contract);
+
+      const button =
+        document.querySelector(".copy-btn");
+
+      const oldText = button.innerText;
+
+      button.innerText = "COPIED!";
+
+      setTimeout(() => {
+
+        button.innerText = oldText;
+
+      }, 1500);
+
+    }
+
+  </script>
+
+</body>
+</html>
